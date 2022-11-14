@@ -1,0 +1,104 @@
+{
+  "name": "composer-client",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/apps/composer-client/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/packages/apps/composer-client",
+        "index": "packages/apps/composer-client/src/index.html",
+        "baseHref": "/",
+        "main": "packages/apps/composer-client/src/main.ts",
+        "polyfills": "packages/apps/composer-client/src/polyfills.ts",
+        "tsConfig": "packages/apps/composer-client/tsconfig.app.json",
+        "assets": [
+          "packages/apps/composer-client/src/favicon.ico",
+          "packages/apps/composer-client/src/assets"
+        ],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "packages/apps/composer-client/webpack.config.js"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "packages/apps/composer-client/src/environments/environment.ts",
+              "with": "packages/apps/composer-client/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "webpackConfig": "packages/apps/composer-client/webpack.config.prod.js"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/react:module-federation-dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "composer-client:build",
+        "hmr": true,
+        "port": 4200
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "composer-client:build:development"
+        },
+        "production": {
+          "buildTarget": "composer-client:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/apps/composer-client/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/apps/composer-client/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "serve-static": {
+      "executor": "@nrwl/web:file-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "composer-client:build",
+        "port": 4200
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "composer-client:build:development"
+        },
+        "production": {
+          "buildTarget": "composer-client:build:production"
+        }
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,1 @@
+(self.webpackChunkplugme=self.webpackChunkplugme||[]).push([[288],{7288:(e,l,u)=>{u.r(l),u.d(l,{default:()=>p});var d=u(4512);const p=()=>(0,d.jsx)("div",{children:"Hello World"})}}]);
