@@ -1,9 +1,15 @@
 {
-  "name": "plugins-hello",
+  "name": "hello",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/plugins/hello/src",
   "projectType": "application",
   "targets": {
+    "publish": {
+      "executor": "@pluggy/nx-plugin:publish"
+    },
+    "pack":{
+      "executor": "@pluggy/nx-plugin:pack"
+    },
     "build": {
       "executor": "@nrwl/webpack:webpack",
       "outputs": ["{options.outputPath}"],
@@ -52,16 +58,16 @@
       "executor": "@nrwl/react:module-federation-dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "plugins-hello:build",
+        "buildTarget": "hello:build",
         "hmr": true,
         "port": 4202
       },
       "configurations": {
         "development": {
-          "buildTarget": "plugins-hello:build:development"
+          "buildTarget": "hello:build:development"
         },
         "production": {
-          "buildTarget": "plugins-hello:build:production",
+          "buildTarget": "hello:build:production",
           "hmr": false
         }
       }
@@ -85,15 +91,15 @@
       "executor": "@nrwl/web:file-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "plugins-hello:build",
+        "buildTarget": "hello:build",
         "port": 4202
       },
       "configurations": {
         "development": {
-          "buildTarget": "plugins-hello:build:development"
+          "buildTarget": "hello:build:development"
         },
         "production": {
-          "buildTarget": "plugins-hello:build:production"
+          "buildTarget": "hello:build:production"
         }
       }
     }

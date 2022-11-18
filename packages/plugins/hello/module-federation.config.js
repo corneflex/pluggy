@@ -4,7 +4,7 @@
  * @type {import('@nrwl/react/module-federation').ModuleFederationConfig}
  **/
 const moduleFederationConfig = {
-  name: 'plugins-hello',
+  name: 'hello',
   exposes: {
     './Module': './src/remote-entry.ts',
   },

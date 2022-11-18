@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@pluggy/core": ["packages/libs/core/src/index.ts"]
+      "@pluggy/core": ["packages/libs/core/src/index.ts"],
+      "@pluggy/nx-plugin": ["packages/nx-plugin/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

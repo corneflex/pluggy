@@ -16,6 +16,7 @@ async function bootstrap() {
   app.useStaticAssets(join(__dirname,'plugins'), {prefix: '/plugins', setHeaders: (res, path, stat) => {
     res.set('Access-Control-Allow-Origin', '*');
   }});
+  app.enableCors();
   await app.listen(port);
   Logger.log(
     `🚀 Application is running on: http://localhost:${port}/`

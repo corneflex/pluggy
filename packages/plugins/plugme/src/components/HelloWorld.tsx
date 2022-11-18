@@ -1,5 +1,5 @@
 const HelloWorld = () => {
-  return <div>Hello World</div>;
+  return <div>PlugMe</div>;
 }
 
 export default HelloWorld;

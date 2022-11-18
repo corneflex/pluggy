@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'plugins-hello',
+  displayName: 'hello',
   preset: '../../../jest.preset.js',
   transform: {
     '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)': '@nrwl/react/plugins/jest',

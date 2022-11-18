@@ -5,25 +5,10 @@
   "projectType": "application",
   "targets": {
     "publish": {
-      "executor": "@nrwl/workspace:run-commands",
-      "options": {
-        "commands": [
-          {
-            "command": "nx serve plugin-cli --args=publish --watch=false"
-          }
-        ],
-        "cwd": "packages/plugins/plugme"
-      }
+      "executor": "@pluggy/nx-plugin:publish"
     },
-    "pack": {
-      "executor": "nx:run-commands",
-      "options": {
-        "commands": [
-          {
-            "command": "rm -rf {args.outputPath}/{args.name}.zip && cd dist/packages/plugins/  && zip -r -j {args.outputPath}/{args.name}.zip {args.name}/* && cd ../../../"
-          }
-        ]
-      }
+    "pack":{
+      "executor": "@pluggy/nx-plugin:pack"
     },
     "build": {
       "executor": "@nrwl/webpack:webpack",

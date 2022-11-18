@@ -4,7 +4,7 @@ import * as fs from "fs-extra";
 import * as FormData from "form-data";
 import {firstValueFrom} from "rxjs";
 import * as Process from "process";
-import {execute} from "./util";
+import {execute} from "@pluggy/core";
 
 
 @Injectable()
