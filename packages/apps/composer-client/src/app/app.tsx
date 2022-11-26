@@ -5,9 +5,11 @@ import {useFederatedComponent} from "@pluggy/core";
 import { PluginsList } from './plugins/PluginsList';
 
 export function App() {
-  const {Component: Plugme} = useFederatedComponent('http://localhost:3333/plugins/plugme/remoteEntry.js', 'plugme', './Module');
+  const {Component: Plugme} = useFederatedComponent('http://localhost:9000/remoteEntry.js', 'pluggy', './Module');
   return (
-    <PluginsList></PluginsList>
+    <React.Suspense fallback="Loading Widget...">
+      {Plugme && <Plugme />}
+    </React.Suspense>
   );
 }
 
